@@ -1,0 +1,182 @@
+---
+title: "Arpan Gujarati"
+author: "Research Associate<br>CS Dept. @ UBC"
+#date: "<a href=\"#about\">About</a><a href=\"#research-interests\"><br>Research Interests</a>"
+date: "[About](#about)<br>[Research Interests](#research-interests)<br>[Publications](#publications)<br>[Service & Teaching](#service-and-teaching)<br>[Contact](#contact)<br>[CV](pdfs/cv.pdf)"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+vignette: >
+  %\VignetteIndexEntry{Arpan Gujarati}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+<!--author: "Postdoctoral Researcher | Cloud Software Systems Group | MPI-SWS"-->
+
+<img src="pic_compound.png" width="100%">
+
+## About
+
+<!--![](my_images/myImage2.jpg)-->
+I am a **Research Associate** in the [CS department](https://www.ubc.ca/) at the [University of British Columbia (UBC)](https://www.ubc.ca/) in Vancouver (Canada). I am affiliated with the [Systopia Lab](https://systopia.cs.ubc.ca/) at UBC, where I work with [Margo Seltzer](https://www.seltzer.com/margo/).
+
+Earlier, I spent a year as a postdoctoral researcher at the [Max Planck Institute for Software Systems (MPI-SWS)](http://www.mpi-sws.org/) in Saarbrücken (Germany), during which I worked with [Jonathan Mace](https://people.mpi-sws.org/~jcmace) in the Cloud Software Systems Group.
+<!--I completed my PhD at MPI-SWS under the supervision of [Björn B. Brandenburg](http://www.mpi-sws.org/~bbb/) in the Real-Time Systems Group.-->
+I completed my PhD thesis titled -- *Towards “Ultra-Reliable” CPS: Reliability Analysis of Distributed Real-Time Systems* -- under the supervision of [Björn B. Brandenburg](http://www.mpi-sws.org/~bbb/) in the Real-Time Systems Group at MPI-SWS.
+
+<!--I am a researcher at the [Max Planck Institute for Software Systems (MPI-SWS), Germany](http://www.mpi-sws.org/). I recently submitted my PhD thesis -- titled *Towards “Ultra-Reliable” CPS: Reliability Analysis of Distributed Real-Time Systems* -- under the supervision of [Björn B. Brandenburg](http://www.mpi-sws.org/~bbb/), head of the Real-Time Systems Group at MPI-SWS.-->
+
+Prior to joining MPI-SWS, I was a software development engineer in the Cloud Networking Group at [Citrix R&D, India](https://www.citrix.com/). I finished my undergraduate studies in computer science from [Birla Institute of Technology and Science (BITS Pilani), India](http://www.bits-pilani.ac.in/).
+
+<!--You can find my CV [here](pdfs/cv.pdf).-->
+
+<!--## News-->
+
+<!--==**<span style="color:#F36170">I am on the academic job market. Here are my [CV](cv.pdf) and [research statement](research-statement.pdf).</span>**==-->
+
+<!--==**<span style="color:#F36170">Our OSDI 2020 paper on *Serving DNNs like Clockwork: Performance Predictability from the Bottom Up* receives a Distinguished Artifact Award!</span>**==
+-->
+<!--==**<span style="color:#F36170">Our idea paper *New Wine in an Old Bottle: N-Version Programming for Machine Learning Components* will appear at WoSoCER 2020, co-located with ISSRE 2020!</span>**==
+-->
+
+<!--**<span style="color:#F36170">I will be joining University of British Columbia's CS department as a Research Associate starting ~~January 2021~~ February 2021!</span>**-->
+
+## Research Interests
+
+I am broadly interested in **real-time systems**, **distributed systems**, **fault tolerance**, **reliability analysis**, and **scheduling** problems in the cloud domain as well as in the cyber-physical systems (CPS) domain.
+
+For the cloud domain, I am currently working
+<!--with  [Jonathan Mace](https://people.mpi-sws.org/~jcmace)
+--><!--with [Safya Alzayat](https://www.mpi-sws.org/people/salzayat/)-->
+on building efficient systems for deep neural network inference serving along with [Safya Alzayat](https://people.mpi-sws.org/~salzayat/), [Antoine Kaufmann](https://people.mpi-sws.org/~antoinek/), and [Jonathan Mace](https://people.mpi-sws.org/~jcmace/).
+Previously, I worked briefly on virtual machine scheduling for datacenter applications with [Manohar Vanga](https://people.mpi-sws.org/~mvanga/).
+<!--I have also worked briefly on scheduling problems in the cloud domain.-->
+During my internship at Microsoft Research, I worked on the problem of distributed auto-scaling for Microsoft Azure's inference serving platform, in collaboration with [Kathryn S. McKinley](http://www.cs.utexas.edu/users/mckinley/), [Sameh Elnikety](https://www.microsoft.com/en-us/research/people/samehe/), and [Yuxiong He](https://www.microsoft.com/en-us/research/people/yuxhe/).
+
+In the CPS domain, I have explored reliability and schedulability analysis problems along with my PhD advisor [Björn B. Brandenburg](http://www.mpi-sws.org/~bbb/).
+As part of my PhD thesis, I worked on quantitative reliability analysis of distributed real-time systems, such as networked control systems, in the presence of environmentally-induced transient faults. I have had the pleasure of working closely with [Rupak Majumdar](https://people.mpi-sws.org/~rupak/) and [Mitra Nasri](http://www.st.ewi.tudelft.nl/mitra/) on this project.
+Together with [Felipe Cerqueira](https://people.mpi-sws.org/~felipec/), I worked on formalizing the processor affinity concept from the perspective of hard real-time operating systems, and on providing schedulability guarantees for the same.
+
+Until 2019, I used to organize the Real-Time Systems Reading Group at MPI-SWS. You may find the reading list [here](reading-group.html).
+
+## Publications
+
+### Conference Publications
+
+**Arpan Gujarati**, Reza Karimi, Safya Alzayat, Wei Hao, Antoine Kaufmann, Ymir Vigfusson, and Jonathan Mace, "Serving DNNs like Clockwork: Performance Predictability from the Bottom Up", *Proceedings of the 14th USENIX Symposium on Operating Systems Design and Implementation (OSDI 2020)*, November 2020. <img src="trophy.jpeg" width="11"> **<span style="color:#F36170">Distinguished Artifact Award</span>** | [PDF](pdfs/osdi2020_paper.pdf) | [Slides](pdfs/osdi2020_slides.pdf) | [Video](videos/osdi2020_video.mp4) | [Code](https://gitlab.mpi-sws.org/cld/ml/clockwork)
+
+<!--[arXiv Version](https://arxiv.org/abs/2006.02464)-->
+
+**Arpan Gujarati**, Sergey Bozhko, and Björn B. Brandenburg, “Real-Time Replica Consistency over Ethernet with Reliability Bounds”, *Proceedings of the 26th IEEE Real-Time and Embedded Technology and Applications Symposium (RTAS 2020)*, April 2020. <img src="trophy.jpeg" width="11"> **<span style="color:#F36170">Distinguished Paper Award</span>** | [PDF](pdfs/rtas2020_paper.pdf) | [Extended Version](pdfs/rtas2020_appendix.pdf) | [Slides](pdfs/rtas2020_slides.pdf) 
+
+**Arpan Gujarati**, Mitra Nasri, Rupak Majumdar, and Björn B. Brandenburg, “From Iteration to System Failure: Characterizing the FITness of Periodic Weakly-Hard Systems”, *Proceedings of the 31st Euromicro Conference on Real-Time Systems (ECRTS 2019)*, July 2019. [PDF](pdfs/ecrts2019_paper.pdf) | [Extended Version](pdfs/tr-MPI-SWS-2019-001.pdf) | [Slides](pdfs/ecrts2019_slides.pdf)
+
+
+**Arpan Gujarati**, Mitra Nasri, and Björn B. Brandenburg, “Quantifying the Resiliency of Fail-Operational Real-Time Networked Control Systems”, *Proceedings of the 30th Euromicro Conference on Real-Time Systems (ECRTS 2018)*, July 2018. <img src="trophy.jpeg" width="11"> **<span style="color:#F36170">Best Presentation Award</span>** | [PDF](pdfs/ecrts2018_paper.pdf) | [Extended Version](pdfs/tr-MPI-SWS-2018-005.pdf) | [Slides](pdfs/ecrts2018_slides.pdf) | [Poster](pdfs/ecrts2018_poster.pdf)
+
+Manohar Vanga, **Arpan Gujarati**, and Björn B. Brandenburg, “Tableau: A High-Throughput and Predictable VM Scheduler for High-Density Workloads”, *Proceedings of the 13th European Conference on Computer Systems (EuroSys 2018)*, April 2018.
+[PDF](pdfs/eurosys2018_paper.pdf)
+
+**Arpan Gujarati**, Sameh Elnikety, Yuxiong He, Kathryn S. McKinley, and Björn B. Brandenburg, “Swayam: Distributed Autoscaling to Meet SLAs of Machine Learning Inference Services with Resource Efficiency”, *Proceedings of the 18th International Middleware Conference (Middleware 2017)*, December 2017. <img src="trophy.jpeg" width="11"> **<span style="color:#F36170">Best Student Paper Award</span>** | [Paper](pdfs/middleware2017_paper.pdf) | [Appendix](pdfs/middleware2017_appendix.pdf) | [Slides](pdfs/middleware2017_slides.pdf) <!--| Source-->
+
+<!--**Arpan Gujarati**, Mitra Nasri, and Björn B. Brandenburg, “Quantifying the Resiliency of Replicated Networked Control Systems to Transient Faults”, *Proceedings of the Work-in-Progress Session of the 29th Euromicro Conference on Real-Time Systems (ECRTS 2017)*, June 2017.  
+[PDF](pdfs/ecrts2017_wip_paper.pdf) | [Slides](pdfs/ecrts2017_wip_slides.pdf) | [Poster](pdfs/ecrts2017_wip_poster.pdf)
+-->
+
+**Arpan Gujarati**, and Björn B. Brandenburg, “When is CAN the Weakest Link? A Bound on Failures-In-Time in CAN-Based Real-Time Systems”, *Proceedings of the 36th IEEE Real-Time Systems Symposium (RTSS 2015)*, pp. 249–260, December 2015. [PDF](pdfs/rtss2015_paper.pdf) | [Slides](pdfs/rtss2015_slides.pdf) | [Poster](pdfs/rtss2015_poster.pdf)
+
+Felipe Cerqueira, **Arpan Gujarati**, and Björn B. Brandenburg, “Linux's Processor Affinity API, Refined: Shifting Real-Time Tasks towards Higher Schedulability”, *Proceedings of the 35th IEEE Real-Time Systems Symposium (RTSS 2014)*, pp. 249-259, December 2014. [PDF](pdfs/rtss2014_paper.pdf) | [Slides](pdfs/rtss2014_slides.pdf)
+
+**Arpan Gujarati**, Felipe Cerqueira, and Björn B. Brandenburg, “Schedulability Analysis of the Linux Push and Pull Scheduler with Arbitrary Processor Affinities”, *Proceedings of the 25th Euromicro Conference on Real-Time Systems (ECRTS 2013)*, pp. 69-79, July 2013. <img src="trophy.jpeg" width="11"> **<span style="color:#F36170">Outstanding Paper Award</span>** | [PDF](pdfs/ecrts2013_paper_rev_1.pdf) | [Slides](pdfs/ecrts2013_slides.pdf) | [Poster](pdfs/ecrts2013_poster.pdf)  
+<!--**Erratum:** the paper has been revised to account for inaccuracies in Lemmas 2 and 4 in Section IV of the original ECRTS 2013 paper. A detailed erratum is provided in Appendix A of the revised paper.-->
+
+
+### Journal Publications
+
+**Arpan Gujarati**, Felipe Cerqueira, Björn B. Brandenburg, and Geoffrey Nelissen, “Correspondence article: a correction of the reduction-based schedulability analysis for APA scheduling”, *Real-Time Systems*, August 2018. [PDF](https://rdcu.be/38vs) | [Springer Link](https://link.springer.com/article/10.1007/s11241-018-9315-x)
+
+**Arpan Gujarati**, Felipe Cerqueira, and Björn B. Brandenburg, “Multiprocessor Real-Time Scheduling with Arbitrary Processor Affinities: From Practice to Theory”, *Real-Time Systems*, Volume 51, Issue 4, pp. 440–483. Springer Verlag, 2015. [PDF](pdfs/rtsj2014_paper.pdf) | [Springer Link](http://link.springer.com/article/10.1007/s11241-014-9205-9)  
+<!--**Note:** we are in the process of preparing an erratum concerning Section 4. In the meantime, please refer to the [revised conference version](pdfs/ecrts2013_paper_rev_1.pdf) or contact me for details. -->
+
+
+### Workshop and Work-in-Progress Publications
+
+**Arpan Gujarati**, Sathish Gopalakrishnan, and Karthik Pattabiraman, “New Wine in an Old Bottle: N-Version Programming for Machine Learning Components”, *Proceedings of the 10th IEEE International Workshop on Software Certification (WoSoCer 2020)*, October 2020. [PDF](pdfs/wosocer2020_paper.pdf) | [Slides](pdfs/wosocer2020_slides.pdf) <!--| [Poster](pdfs/emsoft2019_poster.pdf)-->
+
+**Arpan Gujarati**, Malte Appel, and Björn B. Brandenburg, “Work-in-Progress: Achal: Building Highly Reliable Networked Control Systems”, *Proceedings of the 15th ACM International Conference on Embedded Software (EMSOFT 2019)*, October 2019. [PDF](pdfs/emsoft2019_paper.pdf) | [Slides](pdfs/emsoft2019_slides.pdf) | [Poster](pdfs/emsoft2019_poster.pdf)
+
+Mitra Nasri, **Arpan Gujarati**, and Björn B. Brandenburg, “Using Schedule-Abstraction Graphs for the Analysis of CAN Message Response Times”, *Proceedings of the 3rd Workshop on Security and Dependability of Critical Embedded Real-Time Systems (CERTS 2018)*, June 2018. [PDF](pdfs/certs2018_paper.pdf) | [Slides](pdfs/certs2018_slides.pdf)
+
+**Arpan Gujarati**, Mitra Nasri, and Björn B. Brandenburg, “Lower-Bounding the MTTF for Systems with (m, k) Constraints and IID Iteration Failure Probabilities”, *Proceedings of the 2nd Workshop on Security and Dependability of Critical Embedded Real-Time Systems (CERTS 2017)*, December 2017.
+[PDF](pdfs/certs2017_paper_b.pdf) | [Technical Report](https://people.mpi-sws.org/~arpanbg/pdfs/tr-MPI-SWS-2018-004r.pdf) | [Slides](pdfs/certs2017_slides_b.pdf)
+
+Malte Appel, **Arpan Gujarati**, and Björn B. Brandenburg, “A Byzantine Fault-Tolerant Key-Value Store for Safety-Critical Distributed Real-Time Systems”, *Proceedings of the 2nd Workshop on Security and Dependability of Critical Embedded Real-Time Systems (CERTS 2017)*, December 2017.
+[PDF](pdfs/certs2017_paper_a.pdf) | [Slides](pdfs/certs2017_slides_a.pdf)
+
+<!--**Arpan Gujarati**, Mitra Nasri, and Björn B. Brandenburg, “Quantifying the Resiliency of Replicated Networked Control Systems to Transient Faults”, *Proceedings of the Work-in-Progress Session of the 29th Euromicro Conference on Real-Time Systems (ECRTS 2017)*, June 2017.  
+[PDF](pdfs/ecrts2017_wip_paper.pdf) | [Slides](pdfs/ecrts2017_wip_slides.pdf) | [Poster](pdfs/ecrts2017_wip_poster.pdf)
+-->
+
+### Thesis
+
+**Arpan Gujarati**, “Towards 'Ultra-Reliable' CPS: Reliability Analysis of Distributed Real-Time Systems”, under the supervision of Björn B. Brandenburg, MPI-SWS and TU Kaiserslautern, 2020. [PDF](pdfs/thesis.pdf) | [Slides](pdfs/phd_defense_slides.pdf) | [BibTex](pdfs/thesis.bib)
+
+## Service and Teaching
+
+<!--Program Committee Member: [RTEST WiP 2018](http://2018.rtest-conf.org/wip-submission/), RTAS BP Track [2019](http://2019.rtas.org/brief-presentations-track) and [2020](http://2020.rtas.org/brief-presentations-2/), [ECRTS AE 2019](https://www.ecrts.org/artifact-evaluation/), [Middleware DW 2020](https://2020.middleware-conference.org/doctoral-symposium-program-committee.html)-->
+
+Program committee member for conferences:
+
+* RTSS ([2021](http://2021.rtss.org/organizers/))
+* ICDCS ([2021](https://icdcs2021.us/track-committee.html))
+* SYSTOR ([2021](https://www.systor.org/2021/organizers.html))
+
+Program committee member for short papers and artifacts:
+
+* ECRTS Artifact Evaluation ([2019](https://www.ecrts.org/artifact-evaluation/))
+* RTEST Work-in-Progress ([2018](http://2018.rtest-conf.org/wip-submission/))
+* RTAS Brief Presentations ([2019](http://2019.rtas.org/brief-presentations-track), [2020](http://2020.rtas.org/brief-presentations-2/))
+* Middleware Doctoral Symposium ([2020](https://2020.middleware-conference.org/doctoral-symposium-program-committee.html))
+
+Journal reviewer:
+
+* [JSys](https://escholarship.org/uc/jsys/eb) (2021)
+* TDSC (2019)
+* TECS (2019, 2020)
+
+External reviewer for conferences:
+
+* ECRTS (2013-2015, 2019)
+* EMSOFT (2020)
+* EuroSys (2013, 2016, 2019)
+* Middleware (2018)
+* RTAS (2013, 2014, 2016)
+* RTNS (2014-2016)
+* RTSS (2013, 2016, 2018, 2020)
+* SYSTOR (2015, 2016)
+
+Teaching assistant for undergraduate and graduate courses:
+
+* Data Structures and Algorithms (BITS Pilani, 2010)
+<!--* [Foundations of Cyber-Physical Systems](http://rts.mpi-sws.org/classes/fall14/foundations-cps/) (MPI-SWS & TU-Kaiserslautern, 2014)-->
+* Foundations of Cyber-Physical Systems (MPI-SWS & TU-Kaiserslautern, 2014)
+* [Distributed Systems](http://courses.mpi-sws.org/ds-ws16/) (MPI-SWS & Saarland University, 2016)
+* [Operating Systems](http://courses.mpi-sws.org/os-ws17/) (MPI-SWS & Saarland University, 2017)
+
+## Contact
+
+<!--![](myEmailImage.png)-->
+arpanbg [AT] mail [DOT] ubc [DOT] ca<br>arpanbg [AT] mpi [DOT] sws [DOT] org
+
+<!--
+MPI-SWS  
+Campus E1 5  
+D-66123 Saarbrücken
+Germany
+
++49 681 9303-8410
+-->
+
+<a href="https://imprint.mpi-klsb.mpg.de/sws/people/arpanbg">Imprint</a> / <a href="https://data-protection.mpi-klsb.mpg.de/sws/people/arpanbg">Data Protection</a>
