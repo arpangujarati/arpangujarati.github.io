@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Arpan Gujarati</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>CPSC 416</strong>
+                  &nbsp;2023 Winter Term 2</a>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>Distributed Systems<br />
+											</h1>
+                      <p><strong>Tuesday/Thursday 8:00 AM to 9:30 AM <br />
+					            310 Hugh Dempster Pavilion <br />
+                      Instructor: <a href="https://arpangujarati.github.io/">Arpan Gujarati</a> <br />
+					            Teaching Assistants: Milad Rezaei, Hadi Sinaee, Cathy Yang <br />
+                      Online Forums: <a href="https://piazza.com/ubc.ca/winterterm22023/cpsc416/home">Piazza</a>, <a href="https://discord.gg/DZmm8AGC">Discord</a>, <a href="https://canvas.ubc.ca/courses/130161">Canvas</a></strong></p>
+										</header>
+
+<p><a href="http://en.wikipedia.org/wiki/Leslie_Lamport">Leslie Lamport</a>,
+the 2013 ACM Turing Award winner, gave the following
+definition of a distributed system.
+<blockquote>A distributed system is one in which the failure of a computer you didn't even
+know existed can render your own computer unusable.</blockquote></p>
+
+<p>Yet, distribution provides numerous benefits.
+A system becomes more <strong>fault
+tolerant</strong> if there are fewer points of failure and it has no centralized
+components. By extending the system with more physical nodes the system gains
+performance and becomes more <strong>scalable</strong>, capable of handling more load.
+Distribution can also improve latency, by improving <strong>geographic diversity</strong>, by
+placing resources closer to clients who use the system.
+Achieving these benefits is not easy. As the quote above illustrates,
+distributed systems can fail in complex ways and these systems are more
+difficult to build, test, and understand than centralized systems.</p>
+
+<p>This course will introduce you to a broad range of topics in distributed
+systems. The tentative topics are listed in the schedule below. For the most
+part this will be a lecture-style course. However, distributed system concepts
+are notoriously challenging to internalize without first-hand experience. The
+emphasis of this course, therefore, will be on building distributed system
+prototypes, small and large.</p>
+
+<hr class="major" />
+<a name="overview"></a>
+<h2>Overview</h2>
+
+<p>
+	<dl><dt>Prerequisites</dt>
+	<dd>
+	  <ul>
+	  <li>CPSC 317 (networks)</li>
+	  <li>CPSC 313 (computer hardware and operating systems)</li>
+	  </ul>
+	</dd>
+</p>
+
+<p>
+<dl><dt>Learning objectives</dt>
+<dd>
+  <ul>
+  <li>Understand key principles in designing and implementing distributed systems</li>
+  <li>Reason about problems that involve distributed components</li>
+  <li>Become familiar with important techniques for solving problems that arise in distributed contexts</li>
+  <li>Build distributed system prototypes using the Go programming language</li>
+  </ul>
+</dd>
+</dl>
+</p>
+
+<p><dl><dt>Communication</dt><dd><ul>
+	<li>We will use <a href="https://piazza.com/ubc.ca/winterterm22023/cpsc416/home">Piazza</a> for all course-related communication.</li>
+	<li>We have also setup a <a href="https://discord.gg/DZmm8AGC">Discord</a> server to facilitate discussion among students.</li>
+	<li>Further, the teaching staff will have weekly, <strong>in-person office hours:</strong><ul>
+		<li>Arpan's: Friday, 09:00 AM to 10:00 AM, ICCS 333 </li>
+		<li>Milad's: Wednesday, 08:00 AM to 09:00 AM, ICCS 355</li>
+		<li>Hadi's: Monday, 05:00 PM to 06:00 PM, ICCS 355</li>
+		<li>Cathy's: TBA</li>
+	</ul></li>
+</ul></dd></dl></p>
+
+<p>
+Piazza and office hours are intended to be the primary mechanism to communicate with the teaching team.
+You may use private posts on Piazza to coomunicate with the instructor and the TAs.
+The teaching staff will not answer questions on Discord.
+</p>
+
+<p>
+While we encourage everyone to participate on Piazza and Discord, participation, or lack thereof, on these forums will not influence your grades in any way.
+</p>
+
+<p><dl><dt>Lectures</dt><dd><ul>
+	<li>The lectures will focus primarily on the understanding fundamental distributed systems concepts and how they apply to production systems. See <a href="schedule">Schedule</a> for details.</li>
+  	<li>The research papers and lecture notes will constitute the primary reading material. You may <em>optionally</em> refer to the <a href="https://www.amazon.ca/Distributed-Systems-Principles-Paradigms-2nd/dp/0132392275">Distributed Systems: Principles and Paradigms (2nd Edition)</a> textbook.</li>
+  	<li>The lectures will <em>not</em> be recorded. We will make all lecture slides, lecture notes, and research papers available online on <a href="https://canvas.ubc.ca/courses/130161">Canvas</a>.</li>
+</ul></dd></dl></p>
+
+<p><dl><dt>Programming Assignments / Project / Labs</dt><dd><ul>
+	<li>There is no open-ended project component in this course.</li>
+	<li>There are a sequence of programming labs or assignments, which together constitute one large project, in which you will build a distributed, fault-tolerant, key-value store.</li>
+	<li>The programming labs will require <a href="go">Go Programming</a> and are due every week or two throughout the term.</li>
+	<li>The first programming lab is to be done <em>individually</em>. The subsequent programming labs are to be done in <em>pairs</em>.</li>
+	<!-- <li>You must follow the <a href="#copying">No Copying Policy</a>.</li> -->
+	<li>More information will be released along with the first programming assignment.</li>
+</ul></dd></dl>
+Please review the <a href="#copying">No Copying Policy</a>.
+You can not use Piazza or Discord to post code, or dictate code, or in any way help someone remotely to <em>do</em> their labs.
+However, it is perfectly okay and in fact encouraged to discuss solution approaches, e.g., you can chat about potential algorithms (without posting pseudocode) and strategies, or about debugging approaches.
+<strong>Assignment details, submission instructions, etc., will be released soon along with Lab 1.</strong> The late submission policy is summarized briefly in the <a href="#accommodations">Accommodations</a> section.
+</p>
+
+<p><dl><dt>Grading</dt>
+Exams will constitute 68% of the total grade.
+These may be organized using the Computer Science department's Computer Based Testing Facilities (CBTF).
+The exams will evaluate your understanding of the lecture material as well as your understanding of the programming assignments.
+The tentative syllabus for each exam is specified in the <a href="schedule">Schedule</a>.
+<dd><ul>
+	<li>Quiz 1 (16%)</li>
+	<li>Quiz 2 (16%)</li>
+	<li>Final (30%)</li>
+</ul></dd>
+Project labs will constitute 38% of the total grade.
+We will evaluate your solutions using automated tests as well as your understanding of your solution using oral examination.
+<dd><ul>
+	<li>LAB 1 (04%)</li>
+	<li>LAB 2 (18%) = 2A (3%) + 2B (5%) + 2C (5%) + 2D (5%)</li>
+	<li>LAB 3 (09%) = 3A (4%) + 3B (5%)</li>
+	<li>LAB 4 (07%) = 4A (2%) + 4B (5%)</li>
+</ul></dd>
+You do not need to pass the Final Exam to pass the course. We will look at your total grade across all components.
+</dl></p>
+
+<p><dl><dt>Waiting List</dt><dd><ul>
+	<li>Do not contact the instructor or course staff about the waiting list or about admission into the class -- instructors have no control over who gets into the course.</li>
+	<li>Waitlists are processed in priority order by the department.</li>
+	<li>Unfortunately, we cannot sign course registration forms and have no knowledge or control over the class composition or waitlists.</li>
+	<li>If you have any questions about registration, please contact the <a href="https://www.cs.ubc.ca/students/undergrad/resources/academic-advising">CS advisors</a>.</li>
+	<li>If you are on the waiting list, you are required to keep up with all the course work.</li>
+</ul></dd></dl></p>
+
+
+<hr class="major" />
+<a name="schedule"></a>
+<h2>Schedule (a work in progress; will change) </h2>
+
+<p>
+<strong>Slides and/or lecture notes will be uploaded after the lecture.</strong>
+These, and other reading material, including all research papers, can be downloaded from the course <a href="https://canvas.ubc.ca/courses/130161">Canvas</a> page.
+Note that, since many papers have multiple versions online, if you download a paper directly from the Internet, it may be inconsistent with the version on Canvas.
+<strong>All deadlines are at 6 PM, Vancouver time!</strong>
+</p>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<td><strong>Week / Lecture</strong></td>
+				<td><strong>Theme</strong></td>
+				<td><strong>Topic / Reading Material</strong></td>
+				<td><strong>Milestones</strong></td>
+			</tr>
+			<tr>
+				<td>01/09, Tuesday</td>
+				<td>W01, L01</td>
+				<td>OVERVIEW</td>
+				<td><a href="#go">Go Programming</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>01/11, Thursday</td>
+				<td>W01, L02</td>
+				<td>PROGRAMMING</td>
+				<td>Implementing Remote Procedure Calls. <a href="https://canvas.ubc.ca/courses/130161/files/30724260?wrap=1">TOCS 1984</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>01/16, Tuesday</td>
+				<td>W02, L03</td>
+				<td>^</td>
+				<td>MapReduce: Simplified Data Processing on Large Clusters. <a href="https://canvas.ubc.ca/courses/130161/files/30724255?wrap=1">OSDI 2004</a></td>
+				<td bgcolor="#FFFF00">LAB 1 Released</td>
+			</tr>
+			<tr>
+				<td>01/18, Thursday</td>
+				<td>W02, L04</td>
+				<td>CRASH FAULTS</td>
+				<td>Reimplementing the Cedar File System Using Logging and Group Commit. <a href="https://canvas.ubc.ca/courses/130161/files/30724244?wrap=1">SOSP 1987</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>01/23, Tuesday</td>
+				<td>W03, L05</td>
+				<td>^</td>
+				<td>Guardians and Actions: Linguistic for Robust, Distributed Programs. <a href="https://canvas.ubc.ca/courses/130161/files/30724238?wrap=1">TOPLAS 1983</a></td>
+				<td bgcolor="#FFB6C1">LAB 1 Due</td>
+			</tr>
+			<tr>
+				<td>01/25, Thursday</td>
+				<td>W03, L06</td>
+				<td>^</td>
+				<td>Hypervisor-Based Fault-Tolerance. <a href="https://canvas.ubc.ca/courses/130161/files/30724251?wrap=1">SOSP 1995</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>01/30, Tuesday</td>
+				<td>W04, L07</td>
+				<td>^</td>
+				<td>In Search of an Understandable Consensus Algorithm. <a href="https://canvas.ubc.ca/courses/130161/files/30724258?wrap=1">ATC 2014 (Extended Version)</a></td>
+				<td bgcolor="#FFFF00">LAB 2 Released</td>
+			</tr>
+			<tr>
+				<td>02/01, Thursday</td>
+				<td>W04, L08</td>
+				<td>^</td>
+				<td>^</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>02/06, Tuesday</td>
+				<td>W05, L09</td>
+				<td>^</td>
+				<td>ZooKeeper: Wait-free coordination for Internet-scale systems. <a href="https://canvas.ubc.ca/courses/130161/files/30724264?wrap=1">ATC 2010</a></td>
+				<td bgcolor="#FFB6C1">LAB 2A Due</td>
+			</tr>
+			<tr>
+				<td bgcolor="#00FFFF">02/08, Thursday</td>
+				<td bgcolor="#00FFFF">W05, L10</td>
+				<!-- <td></td> -->
+				<td colspan="3" style="text-align: center;" bgcolor="#00FFFF">Quiz 1: DISTRIBUTED PROGRAMMING, CRASH FAULTS, and LAB 1</td>
+				<!-- <td><span style="background-color:#00FFFF">&nbsp;Quiz 1&nbsp;</span></td> -->
+			</tr>
+			<tr>
+				<td>02/13, Tuesday</td>
+				<td>W06, L11</td>
+				<td>BYZANTINE FAULTS</td>
+				<td>Practical Byzantine Fault Tolerance. <a href="https://canvas.ubc.ca/courses/130161/files/30724256?wrap=1">OSDI 1999</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>02/15, Thursday</td>
+				<td>W06, L12</td>
+				<td>^</td>
+				<td>Bounded-Time Recovery for Distributed Real-Time Systems. <a href="https://canvas.ubc.ca/courses/130161/files/30724243?wrap=1">RTAS 2020</a><br/ >
+					REBOUND: Defending Distributed Systems Against Attacks with Bounded-Time Recovery. <a href="https://canvas.ubc.ca/courses/130161/files/30724259?wrap=1">EuroSys 2021</a></td>
+				<td bgcolor="#FFB6C1">LAB 2B Due</td>
+			</tr>
+			<tr>
+				<td bgcolor="#76ff7a">02/20, Tuesday</td>
+				<td bgcolor="#76ff7a">W07, L13</td>
+				<td colspan="3" style="text-align: center;" bgcolor="#76ff7a">Mid-term Break</td>
+			</tr>
+			<tr>
+				<td bgcolor="#76ff7a">02/22, Thursday</td>
+				<td bgcolor="#76ff7a">W07, L14</td>
+				<td colspan="3" style="text-align: center;" bgcolor="#76ff7a">Mid-term Break</td>
+			</tr>
+			<tr>
+				<td>02/27, Tuesday</td>
+				<td>W08, L15</td>
+				<td>^</td>
+				<td>IGOR: Accelerating Byzantine Fault Tolerance for Real-Time Systems with Eager Execution. <a href="https://canvas.ubc.ca/courses/130161/files/30724252?wrap=1">RTAS 2021</a><br/ >
+					CrossTalk: Making Low-Latency Fault Tolerance Cheap by Exploiting Redundant Networks. <a href="https://canvas.ubc.ca/courses/130161/files/30724248?wrap=1">EMSOFT 2023</a></td>
+				<td bgcolor="#FFB6C1">LAB 2C Due</td>
+			</tr>
+			<tr>
+				<td>02/29, Thursday</td>
+				<td>W08, L16</td>
+				<td>CONSISTENCY</td>
+				<td>Memory Coherence in Shared Virtual Memory Systems. TOCS 1989</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>03/05, Tuesday</td>
+				<td>W09, L17</td>
+				<td>^</td>
+				<td>TreadMarks: Distributed Shared Memory on Standard Workstations and Operating Systems. 1994</td>
+				<td bgcolor="#FFB6C1">LAB 2D Due</td>
+			</tr>
+			<tr>
+				<td>03/07, Thursday</td>
+				<td>W09, L18</td>
+				<td>^</td>
+				<td>File Synchronization with Vector Time Pairs. MIT-CSAIL-TR 2005</td>
+				<td bgcolor="#FFFF00">LAB 3 Released</td>
+			</tr>
+			<tr>
+				<td>03/12, Tuesday</td>
+				<td>W10, L19</td>
+				<td>^</td>
+				<td>Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System. SOSP 1995</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>03/14, Thursday</td>
+				<td>W10, L20</td>
+				<td>^</td>
+				<td>TAO: Facebook’s Distributed Data Store for the Social Graph. ATC 2013<br/ >
+					Existential Consistency: Measuring and Understanding Consistency at Facebook. SOSP 2015</td>
+				<td bgcolor="#FFB6C1">LAB 3A Due</td>
+			</tr>
+			<tr>
+				<td bgcolor="#00FFFF">03/19, Tuesday</td>
+				<td bgcolor="#00FFFF">W11, L21</td>
+				<!-- <td>EXAM</td> -->
+				<td colspan="3" style="text-align: center;" bgcolor="#00FFFF">Quiz 2: BYZANTINE FAULTS, CONSISTENCY MODELS, and LABS 2 & 3</td>
+				<!-- <td><span style="background-color:#00FFFF">&nbsp;Quiz 2&nbsp;</span></td> -->
+				<!-- <td colspan="3" style="text-align: center;"><span style="background-color:#00FFFF">&nbsp;Quiz 2&nbsp;</span></td> -->
+			</tr>
+			<tr>
+				<td>03/21, Thursday</td>
+				<td>W11, L22</td>
+				<td>PEER-TO-PEER</td>
+				<td>Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications. SIGCOMM 2001</td>
+				<!-- <td>Bitcoin: A Peer-to-Peer Electronic Cash System. 2008</td> -->
+				<td></td>
+			</tr>
+			<tr>
+				<td>03/26, Tuesday</td>
+				<td>W12, L23</td>
+				<td>^</td>
+				<td>Democratizing content publication with Coral. NSDI 2004</td>
+				<td bgcolor="#FFB6C1">LAB 3B Due</td>
+			</tr>
+			<tr>
+				<td>03/28, Thursday</td>
+				<td>W12, L24</td>
+				<td>^</td>
+				<td>Incentives Build Robustness in BitTorrent. 2003<br/ >
+					Do incentives build robustness in BitTorrent? NSDI 2007</td>
+				<td bgcolor="#FFFF00">LAB 4 Released</td>
+			</tr>
+			<tr>
+				<td>04/02, Tuesday</td>
+				<td>W13, L25</td>
+				<td>^</td>
+				<td>Bitcoin: A Peer-to-Peer Electronic Cash System. 2008</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>04/04, Thursday</td>
+				<td>W13, L26</td>
+				<td>INVARIANTS</td>
+				<td>Distributed Snapshots: Determining Global States of Distributed Systems. TOCS 1985<br/ >
+					State Management in Apache Flink: Consistent Stateful Distributed Stream Processing. VLDB 2017</td>
+				<td bgcolor="#FFB6C1">LAB 4A Due</td>
+			</tr>
+			<tr>
+				<td>04/09, Tuesday</td>
+				<td>W14, L27</td>
+				<td>^</td>
+				<td>An Optimal Algorithm for Mutual Exclusion in Computer Networks. CACM 1981<br/ >
+					Deconstructing the Bakery to Build a Distributed State Machine. CACM 2022</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>04/11, Thursday</td>
+				<td>W14, L28</td>
+				<td>CASE STUDY</td>
+				<td> TBA
+					<!-- Dynamo: Amazon’s Highly Available Key-value Store. SOSP 2007<br/ >
+					Compiling Distributed System Models with PGo. ASPLOS 2023<br/ >
+					Grove: a Separation-Logic Library for Verifying Distributed Systems. SOSP 2023<br/ >
+					Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing. NSDI 2012<br/ >
+					Chain Replication for Supporting High Throughput and Availability. OSDI 2004<br/ >
+					Byzantine Ordered Consensus without Byzantine Oligarchy. OSDI 2020 -->
+				</td>
+				<td bgcolor="#FFB6C1">LAB 4B Due</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: center;" bgcolor="#00FFFF">Final Exam: EVERYTHING, INCLUDING LABS 1-4!</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<!-- <hr class="major" />
+<a name="waiting"></a>
+<h2>Waiting List</h2>
+
+<p>
+Do not contact the instructor or course staff about the waiting list or about admission into the class -- instructors have no control over who gets into the course.
+Waitlists are processed in priority order by the department.
+Unfortunately, we cannot sign course registration forms and have no knowledge or control over the class composition or waitlists.
+If you have any questions about registration, please contact the <a href="https://www.cs.ubc.ca/students/undergrad/resources/academic-advising">CS advisors</a>.
+<strong>If you are on the waiting list, you are required to keep up with all the course work.</strong>
+</p> -->
+
+<hr class="major" />
+<a name="go"></a>
+<h2>Go Programming</h2>
+
+<p>
+In this course we will exclusively use the <a href="http://golang.org/">Go programming language</a> for all project labs.
+Learning a new programming language is an important skill.
+You will practice it in this course.
+For the most part I will expect that you learn this language on your own.
+<b>We will be using Go version 1.16.7</b> (available at <code>/cs/local/bin/go</code> on ugrad servers).
+If you use a personal machine, make sure to install this exact version.
+Though, please note that <strong>all homework solutions will be tested on the ugrad server machines.</strong>
+</p>
+
+<p>
+Go is a systems language originally introduced by Google.
+It is especially well suited to building distributed systems.
+Like with any language, the fastest way to become proficient at Go is to put in the time writing programs in Go.
+Here are some resources to get you started:
+<dd>
+<ul>
+<li><a href="https://tour.golang.org/welcome/1">Go tutorial (start here)</a></li>
+<li><a href="https://golang.org/doc/code.html">How to Write Go Code</a></li>
+<li><a href="https://golang.org/doc/effective_go.html">Effective Go</a></li>
+<li><a href="http://www.golangbootcamp.com/book">Go Bootcamp (online book)</a></li>
+<li><a href="https://gobyexample.com/">Go by Example</a></li>
+<li><a href="https://github.com/golang/go/wiki/Learn">More Go resources</a></li>
+</ul>
+</dd>
+
+Amanda and Stewart led an in-class Go tutorial in the Winter 2017 version of the course.
+Here is the recorded version: <a href="https://www.youtube.com/watch?v=L04p8SSmW-c&t=1s">part 1</a>, and <a href="https://www.youtube.com/watch?v=xAU1_chlGBA&t=1786s">part 2</a>.
+These are for an earlier version of Go. They are still useful, but take them with a grain of salt.
+
+</p>
+
+<hr class="major" />
+<a name="accommodations"></a>
+<h2>Accommodations</h2>
+
+<p><dl><dt>Late submissions for programming assignments.</dt>
+<p>
+	For Lab 1, there is no extension. Please start working on it as soon as possible.
+</p>
+<p>
+	For all subsequent labs, i.e., 2A-2D, 3A and 3B, and 4A and 4B, we will apply a flexible slip date policy for late submissions.
+	Each team will be allocated an automatic extension of 4 calendar days for the entire course.
+	Teams can use the extension in daily increments.
+	For instance, you can hand in Lab 2A 4 days late, or Lab 2A 2 days late and Labs 4A and 4B each 1 day late.
+	Since we measure extensions in daily increments, submitting an assignment 1 hour late is equivalent to submitting it 1 day late.
+</p>
+<p>
+	We will provide more instructions on how to seek extensions closer to the Lab 2 release date.
+</p>
+</dl></p>
+
+<p><dl><dt>Other Absences</dt>
+	We will deal with absences from quizzes and the final exam on a case-by-case basis.
+</dl></p>
+
+<hr class="major" />
+<a name="copying"></a>
+<h2>No Copying Policy</h2>
+
+<p><dl><dt>IMPORTANT: DO NOT copy/share any portion of the programming assignments.</dt>
+	The project is a continuous cumulative project with a series of checkpoints (labs).
+	Copying any portion (even from your own project from a prior semester) means you cheated on the whole project.
+	Cheating is copying or sharing solutions.
+	All work must be done by you.
+	A tutor must not help you with project content.
+	You are not allowed to use (look at, copy) any online source that is specifically related to this project beyond those explicitly provided by us.
+	Once the project is over, your repository must remain private, and must not be shared publicly on the internet.
+</dl></p>
+
+<p></p><dl><dt>Specifically, you are NOT allowed to</dt><dd><ul>
+	<li>look at prior solutions to this project, or current students' code for the project</li>
+	<li>use, look at, etc. any aspects of your own prior solution, if you have taken a similar course previously</li>
+	<li>copy code or algorithms from others or the web without appropriate attribution</li>
+	<li>discuss code-level details or pseudocode level algorithms with students past or present or take other students' help in any detailed way</li>
+	<li>share or discuss details of code or algorithms with students past, present or future or with tutors</li>
+	<li>post code to the web during the course, or after completing this course</li>
+	</ul></dd>
+	Make sure every line of code you commit is either provided by us, or written by you (or your team member).
+	If you see snippets of code on stack overflow or some <em>general</em> resource, you can use them but you must cite your source, and indicate the extent of the code used.
+	This policy is bidirectional: whether you copied some other code, or your code was copied, the penalties are the same.  
+</dl></p>
+
+<p></p><dl><dt>It is straightforward to avoid violating this policy!</dt><dd><ul>
+	<li>Always make sure your work is your own.</li>
+	<li>Never look at or copy another team's solution, either from this term or past terms, either from UBC or from other schools.</li>
+	<li>If you have a tutor, don't ask them project-specific questions; use them to help you generally on skill building.</li>
+	<li>Do not share your code with other teams or post your solution online.</li>
+	</ul></dd>
+	After the respective lab deadlines, we may carefully examine all commits using automated analyses and the course staff may carefully manually examine every case of derivative code.
+	We will contact you if we have any questions about whether you violated the policy at some point during the semester.
+	Even if no copied code is retained in your final solution, if you have a commit with copied code, you have still committed academic misconduct.
+</dl></p>
+
+<p></p><dl><dt>The official policies for Academic Misconduct at UBC can be found at the following links.</dt><dd><ul>
+	<li><a href="https://vancouver.calendar.ubc.ca/campus-wide-policies-and-regulations/academic-honesty-and-standards">UBC policy on Academic Misconduct</a></li>
+	<li><a href="https://my.cs.ubc.ca/docs/collaboration-plagiarism">Computer Science Department Lab policies and responsibilities</a></li>
+	<li><a href="https://www.cs.ubc.ca/students/undergrad/resources/academic-integrity">Computer Science Department Academic Integrity</a></li>
+</ul></dd></dl></p>
+
+<hr class="major" />
+<a name="how-to-do-well"></a>
+<h2>How to Do Well in This Course</h2>
+
+<p>
+Learn Go early and practice it regularly.
+Learning a new language while being time constrained is stressful and not fun.
+Since the assignments rapidly increase in their difficulty, it will be to your advantage to learn Go as quickly as possible and to learn it well.
+The posted Go resources are a great starting point, but reading is no substitute for practice, bug, debug, practice, practice, bug, coffee, debug, practice, ...
+</p>
+
+<p>
+Do not skimp on software engineering.
+Distributed systems are hard.
+They are hard to understand, to build, to debug, to run, to trace, to document, etc.
+Do not make your life any more difficult. Use best practices from software engineering to help you in this course.
+Write unit and integration tests, use version control, document your code with comments, write small prototypes, refactor your code, make your code readable and easy to run and debug.
+If you fail to follow best practices, they will come back to bite you later on.
+Unfortunately, this course will not explicitly teach you these best practices, but you probably took a course that introduced you to these concepts.
+If you have any questions, just ask us on Piazza.
+</p>
+
+<p>
+In the lectures, we will focus on fundamental concepts of distributed systems.
+The reading material majorly consists of papers describing well-known systems that rely on these fundamental concepts.
+To do well in exams, prioritize understanding the key concepts discussed in the class, and, when reading papers, understand how these are applied to practical systems.
+The exams will not test your knowledge of details covered in the papers that are not related to the concepts covered in class.
+</p>
+
+<p>
+Reach out for success.
+This is intended to be a challenging fourth year course, but that does not mean that you have to work through it on your own!
+The course piazza should be your first stop for all technical questions.
+The course has specific office hours (see top of page), but I and the TAs are flexible.
+Send any of us an email to schedule a time to discuss the course, the assignments, etc.
+University students often encounter setbacks from time to time that can impact academic performance.
+Discuss your situation with us or an academic advisor as early as possible.
+For help in addressing mental or physical health concerns, including seeing a UBC counselor or doctor, visit <a href="https://www.cs.ubc.ca/health-wellness">this link</a>.
+</p>
+
+<hr class="major" />
+<a name="acknowledgements"></a>
+<h2>Acknowledgements</h2>
+
+<p>
+This course is based on the graduate course on <a
+href="https://pdos.csail.mit.edu/6.824">Distributed Systems (6.584)</a>
+developed by Robert Morris, Frans Kaashoek, and Nickolai Zeldovich at MIT,
+with permission from the content authors.
+</p>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
