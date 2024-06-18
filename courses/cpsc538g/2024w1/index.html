@@ -40,7 +40,7 @@
 					  <br /><br />Office hours: TBD</strong></p>
 										</header>
 
-<!-- <p>
+<p>
 Cyber-Physical Systems (CPS) are ubiquitous, with examples ranging
 from industrial robot arms to autonomous home vacuum cleaners.
 Unlike a personal computer or a cloud server, CPS interact directly with the
@@ -49,7 +49,24 @@ Their correctness criteria are determined as much by the physics of their
 environment as by the internal state of their program. 
 For example, an engine control unit in a car, which decides the amount of fuel
 to be injected, must adapt its decision logic and frequency with the engine RPM.
-</p> -->
+</p>
+
+<p>
+Many CPS, such as those used in fully autonomous systems, can require nontrivial
+amounts of computation and physical sensing and actuation every few milliseconds,
+and even a single faulty or delayed actuation can be fatal.
+<em>Real-time computing</em> is about ensuring that an implementation of such CPS on
+specific hardware always complies with the timing requirements,
+e.g., the software processes responsible for sensing, control, and actuation must be
+activated every <em>T<sub>time-period</sub></em> milliseconds,
+and, upon activation, their combined execution must finish within
+<em>T<sub>deadline</sub></em> milliseconds.
+This is challenging because on most platforms, right from the microarchitecture to
+programming languages, operating systems, and networking protocols, timing is a
+performance metric, not a safety property.
+Engineers thus rely on timer interrupts and priorities to control timing in software
+and schedulability analyses to determine if timing requirements will always be met.
+</p>
 
 <!-- <p>
 Many such CPS must be inherently <em>distributed</em>, are subject to stringent
@@ -65,25 +82,25 @@ Going forward, the reliability of <em>learning-enabled components</em> and
 like timing and fault tolerance has been in so far.
 </p> -->
 
-<!-- <p>
+<p>
 The focus of this course is to <em>explore the design principles that allow the
-construction of analytically sound and functionally safe
-distributed real-time systems</em>,
-which are integral to a plethora of contemporary safety-critical CPS.
-To this end, we will reason about, compare, and contrast the techniques from
-both the distributed systems and real-time systems literature.
-</p> -->
+construction of analytically sound and temporally safe real-time computing systems</em>,
+which are integral to a plethora of safety-critical CPS.
+To this end, we will reason about, compare, and contrast different scheduling algortihms
+and mathematical analyses techniques from the real-time systems literature.
+</p>
 
 <p>
 <dl><dt>Learning objectives</dt>
 <dd>
   <ul>
-	<li>TBD</li>
-  <!-- <li>Become familiar with key techniques in the field of real-time computing and distributed systems</li> -->
-	<!--<li>Reason about mechanisms to tolerate different types of faults and errors</li>-->
-  <!-- <li>Compare and contrast design principles for general-purpose systems with those for CPS, which are special-purpose systems</li> -->
-  <!-- <li>Design and conduct a research project in distributed systems and/or real-time computing (broadly construed)</li> -->
-  <!-- <li>Learn to read, critique, write about, and present systems (or theory!) research</li> -->
+	<!-- <li>TBD</li> -->
+	<li>Compare and contrast design principles for general-purpose systems with those for special-purpose real-time or cyber-physical systems</li>
+  <li>Become familiar with key algorithms and mathematical analyses for hard real-time scheduling</li>
+	<li>Get a preview of state-of-the-art research on mechanizing scheduling analyses using the Coq interactive theorem prover (tentative)</li>
+	<li>Learn to read, critique, write about, and present systems or theory research in the field of real-time systems</li>
+  <li>Design and conduct a research project related to scheduling or real-time computing in operating or distributed systems</li>
+	<li>Understand the internals of FreeRTOS through a set of well-defined programming assignments (optional, in lieu of a research project)</li>
   </ul>
 </dd>
 </dl>
@@ -100,7 +117,7 @@ systems, such as operating systems, computer networks, or distributed systems.
 Prior exposure to real-time computing, embedded systems, or cyber-physical
 systems is recommended but not required.
 Enterprising Bachelors students who fulfill the above pre-requisites,
-i.e., CPSC 313 and CPSC 317, are welcome to participate.
+i.e., CPSC 313, CPSC 317 or CPSC 416, are welcome to participate.
 In addition, a certain level of proficiency in discrete mathematics and probability,
 and some background in algorithms and complexity of computation, typically at the level of CPSC 320,
 is also expected.
@@ -128,7 +145,29 @@ a list of courses related to computer science that you have taken.
 <a name="grading"></a>
 <h2>Grading</h2>
 
-<p>TBD</p>
+<!-- <p>TBD</p> -->
+
+<h3>Milestones (tentative)</h3>
+<p>
+	<dl>
+	<dd>
+		<ul>
+		<!-- <li>TBD</li> -->
+			<li>09/09: Assignment 1 on hard real-time scheduling theory released</li>
+		 	<li>16/09: Drop deadline</li>
+			<li>02/10: Proposal presentation</li>
+			<li>02/10: Proposal reports due at 11:59 PM</li>
+			<li>07/10: Assignment 1 due at 11:59 PM</li>
+			<li>09/10: Assignment 2 on mechanized analyses released</li>
+			<li>28/10: Assignment 2 due at 11:59 PM</li>
+			<li>04/12: Last day of teaching</li>
+			<li>TBD: Final project presentation</li>
+			<li>TBD: Final reports and artifacts due at 11:59 PM</li>
+		</ul>
+	</dd>
+	</dl>
+	</p>
+	
 
 <hr class="major" />
 <a name="schedule"></a>
@@ -145,6 +184,8 @@ Nonetheless, I will also be uploading all papers to the UBC Canvas course page.
 We will cover the following themes. REAL-TIME SYSTEMS, AUTONOMOUS DRIVING SYSTEMS, FAULT-TOLERANT REAL-TIME SYSTEMS,
 </p> -->
 
+<h3>Hard Real-Time Scheduling</h3>
+
 <p>
 Textbook: Giorgio C. Buttazzo, Hard Real-Time Computing Systems, 3rd edition.
 The electronic version is accessible via <a href="https://go.exlibris.link/YzpnxKfG">UBC Library</a>.
@@ -155,224 +196,371 @@ The electronic version is accessible via <a href="https://go.exlibris.link/Yzpnx
 		<tbody>
 			<tr>
 				<td><strong>Date</strong></td>
-				<td><strong>Theme</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
 				<!-- <td><strong>Daily Topic</strong></td> -->
-				<td><strong>Reading Material</strong></td>
+				<td><strong>Reading Material / Topic</strong></td>
+				<!-- <td><strong>Presenter</strong></td> -->
 				<td><strong>Milestone</strong></td>
-				<td><strong>Presenter</strong></td>
 			</tr>
 			<tr>
 				<td>04/09</td>
-				<td>OVERVIEW</td>
+				<!-- <td>OVERVIEW</td> -->
 				<!-- <td>Logistics</td> -->
 				<td>A General View and Basic Concepts. Buttazzo 2011 (Chapters 1 and 2)</td>
+				<!-- <td>Arpan</td> -->
 				<td></td>
-				<td>Arpan</td>
 			</tr>
 			<tr>
 				<td>09/09</td>
-				<td>HARD REAL-TIME SCHEDULING</td>
+				<!-- <td>HARD REAL-TIME SCHEDULING</td> -->
 				<td>Periodic Task Scheduling. Buttazzo 2011 (Chapter 4)</td>
+				<!-- <td>^</td> -->
 				<td bgcolor="#FFFF00">Assignment 1 Released</td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>11/09</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<td>Periodic Task Scheduling. Buttazzo 2011 (Chapter 4)</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>16/09</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<td>Fixed-Priority Servers. Buttazzo 2011 (Chapters 5)</td>
+				<!-- <td>^</td> -->
 				<td bgcolor="#00FFFF">Drop Deadline</td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>18/09</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<td>Dynamic Priority Servers. Buttazzo 2011 (Chapter 6)</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>23/09</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<td>Resource Access Protocols. Buttazzo 2011 (Chapter 7)</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>25/09</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<td>Resource Access Protocols. Buttazzo 2011 (Chapter 7)</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td>^</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Project Proposals</h3>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date</strong></td>
+				<!-- <td><strong>Daily Topic</strong></td> -->
+				<td><strong>Reading Material / Topic</strong></td>
+				<!-- <td><strong>Presenter</strong></td> -->
+				<td><strong>Milestone</strong></td>
 			</tr>
 			<tr>
 				<td>02/10</td>
 				<!-- <td></td> -->
-				<td colspan="2" style="text-align: center;" bgcolor="#FFB6C1">Every team/individual gives a lightning talk based on their project proposal</td>
-				<td bgcolor="#FFB6C1">Proposals Due</td>
-				<td>Everyone</td>
+				<td colspan="1" style="text-align: left;" bgcolor="#FFB6C1">Every team or an individual gives a lightning talk based on their project proposal</td>
+				<!-- <td>Everyone</td> -->
+				<td bgcolor="#FFB6C1">Proposals Reports Due</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Mechanized Analyses</h3>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date</strong></td>
+				<!-- <td><strong>Daily Topic</strong></td> -->
+				<td><strong>Reading Material / Topic</strong></td>
+				<!-- <td><strong>Presenter</strong></td> -->
+				<td><strong>Milestone</strong></td>
 			</tr>
 			<tr>
 				<td>07/10</td>
-				<td>MECHANIZED ANALYSES</td>
 				<!-- <td>PCSPOOF</td> -->
-				<td></td>
+				<td>TBD</td>
+				<!-- <td>Philip?</td> -->
 				<td bgcolor="#FFB6C1">Assignment 1 Due</td>
-				<td>Philip?</td>
 			</tr>
 			<tr>
 				<td>09/10</td>
-				<td>^</td>
 				<!-- <td>CAN</td> -->
-				<td></td>
+				<td>TBD</td>
+				<!-- <td>^</td> -->
 				<td bgcolor="#FFFF00">Assignment 2 Released</td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>16/10</td>
-				<td>^</td>
 				<!-- <td>ZooKeeper</td> -->
+				<td>TBD</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td></td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>21/10</td>
-				<td>^</td>
 				<!-- <td>RT-ZooKeeper</td> -->
+				<td>TBD</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td></td>
-				<td>^</td>
 			</tr>
 			<tr>
 				<td>23/10</td>
-				<td>^</td>
 				<!-- <td>TapeWorm</td> -->
+				<td>TBD</td>
+				<!-- <td>^</td> -->
 				<td></td>
-				<td></td>
-				<td>^</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Paper Presentations</h3>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date</strong></td>
+				<!-- <td><strong>Daily Topic</strong></td> -->
+				<td><strong>Reading Material / Topic</strong></td>
+				<td><strong>Presenter</strong></td>
+				<td><strong>Milestone</strong></td>
 			</tr>
 			<tr>
 				<td>28/10</td>
-				<td>SYSTEM DESIGN</td>
+				<!-- <td>SYSTEM DESIGN</td> -->
 				<!-- <td>LET</td> -->
-				<td></td>
-				<td bgcolor="#FFB6C1">Assignment 2 Due</td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td bgcolor="#FFB6C1">Assignment 2 Due</td>
 			</tr>
 			<tr>
 				<td>30/10</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>Honeywell &<br/ > TTA</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>04/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>Honeywell &<br/ > TTA</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>06/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>Abstract</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>18/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>In-ConcReTeS</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>20/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>CRC</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>25/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>CAL</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>27/11</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>Traces</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>02/12</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>Model Checking</td> -->
-				<td></td>
-				<td></td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>04/12</td>
-				<td>^</td>
+				<!-- <td>^</td> -->
 				<!-- <td>TLA+</td> -->
-				<td></td>
-				<td bgcolor="#00FFFF">Last Day of Teaching</td>
 				<td>TBD</td>
+				<td>TBD</td>
+				<td bgcolor="#00FFFF">Last Day of Teaching</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Final Exams Period</h3>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date</strong></td>
+				<!-- <td><strong>Daily Topic</strong></td> -->
+				<td><strong>Reading Material / Topic</strong></td>
+				<td><strong>Milestone</strong></td>
 			</tr>
 			<tr>
-				<td>09/10</td>
+				<td>09/12</td>
 				<!-- <td></td> -->
-				<td colspan="2" style="text-align: center;" bgcolor="#00FFFF">No classes during final exams</td>
+				<td colspan="1" style="text-align: left;" bgcolor="#00FFFF">No classes during final exams</td>
 				<td></td>
-				<td>N/A</td>
 			</tr>
 			<tr>
-				<td>11/10</td>
+				<td>11/12</td>
 				<!-- <td></td> -->
-				<td colspan="2" style="text-align: center;" bgcolor="#00FFFF">No classes during final exams</td>
+				<td colspan="1" style="text-align: left;" bgcolor="#00FFFF">No classes during final exams</td>
 				<td></td>
-				<td>N/A</td>
 			</tr>
 			<tr>
-				<td>16/10</td>
+				<td>16/12</td>
 				<!-- <td></td> -->
-				<td colspan="2" style="text-align: center;" bgcolor="#00FFFF">No classes during final exams</td>
+				<td colspan="1" style="text-align: left;" bgcolor="#00FFFF">No classes during final exams</td>
 				<td></td>
-				<td>N/A</td>
 			</tr>
 			<tr>
-				<td>18/10</td>
+				<td>18/12</td>
 				<!-- <td></td> -->
-				<td colspan="2" style="text-align: center;" bgcolor="#00FFFF">No classes during final exams</td>
-				<td bgcolor="#FFB6C1">Reports Due</td>
-				<td>N/A</td>
+				<td colspan="1" style="text-align: left;" bgcolor="#00FFFF">No classes during final exams</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>TBD</td>
+				<!-- <td></td> -->
+				<td colspan="1" style="text-align: left;" bgcolor="#FFB6C1">Every team or an individual gives a lightning talk on their final project findings (date tentative)</td>
+				<td bgcolor="#FFB6C1">Final reports and artifacts due</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
 <hr class="major" />
+<a name="interesting-papers"></a>
+<h2>Interesting Papers</h2>
+
+<p>TBD</p>
+
+<hr class="major" />
 <a name="project"></a>
 <h2>Project</h2>
+
+<a name="freertos"></a>
+<h3>Research Project (Option 1)</h3>
+
+<p>You must propose a research project with a problem statment and a research
+	plan, conduct the research, and write up your research results and experience.
+	If you need any specific equipment, software, or tools for your project,
+	please speak to us as soon as possible.</p>
+	
+	<p>It is okay if you do not complete a full-fledged project by the end of the term.
+	The goal is to learn how to go from a one-line problem to a fully scoped out
+	research problem, then try and identify potential solutions.
+	If a topic is difficult and you do not reach the practical implementation stage,
+	that will be fine.</p>
+	
+	
+	<p>
+	There are four deliverables in the project.
+	Each written component must be formatted using the
+	<a href="https://submission.dagstuhl.de/series/details/5#author">LIPIcs style template</a>.
+	You are strongly encouraged to use LaTeX for typesetting.
+	</p>
+	
+	<p><dl>
+	<dt>Research Proposal</dt>
+	<dd>The proposal should be minimally four pages (excluding references)
+	and must include the following sections.
+	<p><dl><dd>
+		<ul>
+		<li>Introduction: Explain what is the problem, why is it an important
+		problem, and why are you interested in this problem? Describe the background
+		and motivation for the problem you are interested in, and pose a concrete
+		research question.</li>
+		<li>Related work: Do a brief survey of related work in the problem space.
+		This includes papers that solve the same problem but with a different
+		approach and papers whose ideas you build upon in your own work. Compare and
+		contrast your own proposed solution with each related work. If you have not
+		read all the related work by the time of proposal submission, make a list of
+		papers that you will be covering by the final report submission.</li>
+		<li>Proposed solution: Describe your proposed solution and planned
+		methodology to answer the research question at a high level.</li>
+		<li>Evaluation: Describe how you plan to evaluate your proposed solution.
+		What kind of data, plots, or proofs artifacts would you generate from the
+		evaluation?</li>
+		</ul>
+	</dd></dl></p>
+	</dd>
+	</dl></p>
+	
+	<p><dl>
+	<dt>Proposal Presentation</dt>
+	<dd>Each group will give a short presentation followed by Q&A and feedback from the class. Focus on presenting:
+	<p><dl><dd>
+		<ul>
+		<li>Problem: What is the problem they are working on? (Include the basic context that is required to understand the problem statement.)</li>
+		<li>Motivation: Why is an important problem and why did you choose to work on this problem?</li>
+		<li>Key idea: What is the key idea of your solution?</li>
+		<li>Deliverable: What is the expected final deliverable?</li>
+		</ul>
+	</dd></dl></p>
+	</dd>
+	</dl></p>
+	
+	<p><dl>
+	<dt>Final Presentation</dt>
+	<dd>Each group will give a short presentation followed by Q&A from
+	the class. The presentation would be similar to a conference or workshop talk.
+	Focus on presenting the motivation, the problem, one key idea of your project,
+	and the results.</dd>
+	</dl></p>
+	
+	<p><dl>
+	<dt>Final Report</dt>
+	<dd>The final report must include similar sections as in the proposal but written
+	in a way to describe what has been done. Additionally, add a section describing
+	the limitations of your work and how the research can be extended (by you or
+	someone else) in the future.</dd>
+	</dl></p>
+
+<a name="freertos"></a>
+<h3>FreeRTOS Assignments (Option 2)</h3>
 
 <p>TBD</p>
 
