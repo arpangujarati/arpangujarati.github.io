@@ -99,7 +99,7 @@ and mathematical analyses techniques from the real-time systems literature.
   <li>Become familiar with key algorithms and mathematical analyses for hard real-time scheduling</li>
 	<li>Get a preview of state-of-the-art research on mechanizing scheduling analyses using the Coq interactive theorem prover (tentative)</li>
 	<li>Learn to read, critique, write about, and present systems or theory research in the field of real-time systems</li>
-  <li>Design and conduct a research project related to scheduling or real-time computing in operating or distributed systems</li>
+  <li>Design and conduct a research project related to scheduling or real-time computing in operating or distributed systems (broadly construed)</li>
 	<li>Understand the internals of FreeRTOS through a set of well-defined programming assignments (optional, in lieu of a research project)</li>
   </ul>
 </dd>
@@ -143,9 +143,101 @@ a list of courses related to computer science that you have taken.
 
 <hr class="major" />
 <a name="grading"></a>
-<h2>Grading</h2>
+<h2>Grading (tentative)</h2>
 
-<!-- <p>TBD</p> -->
+<h3>Main Components</h3>
+
+<p>
+	This is a graduate course.
+	The primary goal is to prepare you to do research,
+	by encouraging you to read and discuss research papers,
+	and by giving you an opportunity to carry out an open-ended course project in
+	the broad areas of distributed and real-time computing.
+	For students who are new to real-time computing or to software systems research (especially undergraduates),
+	I will also cover the basics of real-time scheduling over a series of lectures during the first half of the course.
+	Therefore, the evaluation for this course consists of three main components.
+	<!-- <strong>The grading scheme is still tentative.</strong> -->
+	</p>
+	
+<p><dl>
+	<dt>Assignments (10%)</dt>
+		<dd>
+		For the first half of the course, I will create few take-home assignments to ensure
+		that you all understand the basic material taught in the class.
+		Assignments are to be handed in individually.
+		Students are expected to read the assigned reading material before each class
+		and come prepared with questions and a critical analysis of the papers.
+		</dd>
+	</dl>
+</p>
+
+	<p><dl>
+	<dt>Paper presentation and participation (30%)</dt>
+	<dd>
+	During the second half of the course, we will discuss several research papers on
+	various topics in the field of real-time systems.
+	We will discuss one (occassionally, two) papers per day.
+	Each paper will be assigned a discussion lead who is expected to read and understand
+	the paper in detail, and who is resonsible for presenting the key ideas of the paper.
+	Students who are not the discussion lead for a paper are expected to read the paper
+	beforehand (at the very least, skim through its key sections)
+	and come prepared with questions.
+	<!-- In the class, we will discuss the key contributions in the papers as well as
+	applications of the key ideas beyond the papers. -->
+	You will be graded based on the <em>quality</em> of your presentation and your participation.
+	<!-- See the <a href="#schedule">Schedule</a> section for the reading material. -->
+	The relative weightage is given below.
+	<p><dl><dd>
+	<ul>
+	<li>Paper presentation (20%)</li>
+	<li>Participation (10%)</li>
+	</ul>
+</dd></dl></p>
+	</dd>
+	</dl></p>
+	
+	<p><dl>
+	<dt>Research project / FreeRTOS programming assignments (60%)</dt>
+	<dd>The research project must be done in teams of 1-3.
+	The goal of the research project is to conduct original research.
+	You may talk to the instructor for some ideas that are well-scoped for a
+	course project.
+	You may also undertake a project overlapping with your own research, if you can
+	demonstrate how it is related to and/or influenced by some topic from this
+	course.
+	The deliverables for a research project and their relative weightage is given below.
+	You must submit a <em>fully functional and reproducible artifact</em> along with the final report.
+	<p><dl><dd>
+		<ul>
+		<li>Proposal presentation (5%)</li>
+		<li>Proposal report (15%)</li>
+		<li>Final presentation (10%)</li>
+		<li>Final report and artifact (30%)</li>
+		</ul>
+	</dd></dl></p>
+	You may choose to do the FreeRTOS programming assignments instead of a research project.
+	Undergraduates, especially, may prefer this option.
+	These assignments will involve understanding the internals of the FreeRTOS real-time operating system kernel,
+	extending it to support the <em>Earliest Deadline First</em> dynamic-priority scheduling algorithm,
+	the <em>Stack Resource Policy</em> for real-time locking, and the <em>Constant Bandwidth Server</em>
+	for co-scheduling real-time periodic and non-real-time aperiodic tasks.
+	The underlying scheduling theory for each of the assignments will be taught during the first half of the course,
+	or else extensive documentation and help will be provided.
+	These tentative programming assignments and their relative weightage is summarized below.
+	Like the research project, you must also submit a <em>fully functional and reproducible artifact</em> along with a design document for each programming assignment.
+	<!-- Remember that a substantial percentage of your grade will be assigned during the demos, so prepare a nice demo! -->
+	<p><dl><dd>
+		<ul>
+		<li>Presentation on FreeRTOS internals (5%)</li>
+		<li>Earliest Deadline First (EDF) (15%)</li>
+		<li>Stack Resource Policy (SRP) (15%)</li>
+		<li>Constant Bandwidth Server (CBS) (15%)</li>
+		<li>Final Demo (10%)</li>
+		</ul>
+	</dd></dl></p>
+	See the <a href="#project">Project</a> section for detailed instructions.
+	</dd>
+	</dl></p>
 
 <h3>Milestones (tentative)</h3>
 <p>
