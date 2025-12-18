@@ -22,8 +22,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>CPSC 538G</strong>
-                  &nbsp;Topics in Computer Systems (REAL-TIME COMP.)</a>
+									<a href="index.html" class="logo"><strong>CPSC 538G & CPEN 432</strong></a>
 								</header>
 
 							<!-- Banner -->
@@ -35,14 +34,246 @@
                       <p><strong>2025 Winter Term 2 <br />
                       Tuesday/Thursday 11:00 AM to 12:30 PM <br />
 					  Venue: <a href="https://learningspaces.ubc.ca/classrooms/swng-307/">SWNG 307</a><br />
-                      Instructor: <a href="https://arpangujarati.github.io/">Arpan Gujarati</a> 
-					  <br />Discussion forum: TBD
-					  <br /><br />Office hours: TBD</strong></p>
+                      Instructor: <a href="https://arpangujarati.github.io/">Arpan Gujarati</a> <br />
+					  Teaching Assistant: <a href="https://mark-van-genderen.github.io/">Mark van Genderen</a> <br />
+					  Discussion forum: <a href="https://piazza.com/ubc.ca/winterterm22025/cpsc538gcpen432/info">Piazza</a><br />
+					  Office hours: TBD</strong></p>
 										</header>
 
-<p><strong><span style="background-color:#FFFF00">This course will also be cross-listed with CPEN 432 -- Real-time System Design.</span></strong></p>
+<p><strong><span style="background-color:#FFFF00">This is the course webpage for both CPSC 538G and CPEN 432, which are cross-listed with each other this term.</span></strong></p>
 
-<p>This page is under construction. Please refer to the <a href="https://arpangujarati.github.io/courses/cpsc538g/2024w1/index.html">2024 Winter Term 1</a> page for reference, as most of the content will be the same.</p>
+<p><strong><span style="background-color:#FFFF00">This page is still under construction!</span></strong></p>
+<!-- <p>Please refer to the <a href="https://arpangujarati.github.io/courses/cpsc538g/2024w1/index.html">2024 Winter Term 1</a> page for reference, as most of the content will be the same.</p> -->
+
+<p>
+	Cyber-Physical Systems (CPS) are ubiquitous, with examples ranging
+	from industrial robot arms to autonomous home vacuum cleaners.
+	Unlike a personal computer or a cloud server, CPS interact directly with the
+	physical world and control physical processes.
+	Their correctness criteria are determined as much by the physics of their
+	environment as by the internal state of their program. 
+	For example, an engine control unit in a car, which decides the amount of fuel
+	to be injected, must adapt its decision logic and frequency with the engine RPM.
+	</p>
+	
+	<p>
+	Many CPS, such as those used in fully autonomous systems, can require nontrivial
+	amounts of computation and physical sensing and actuation every few milliseconds,
+	and even a single faulty or delayed actuation can be fatal.
+	<em>Real-time computing</em> is about ensuring that an implementation of such CPS on
+	specific hardware always complies with the timing requirements,
+	e.g., the software processes responsible for sensing, control, and actuation must be
+	activated every <em>T<sub>time-period</sub></em> milliseconds,
+	and, upon activation, their combined execution must finish within
+	<em>T<sub>deadline</sub></em> milliseconds.
+	This is challenging because on most platforms, right from the microarchitecture to
+	programming languages, operating systems, and networking protocols, timing is a
+	performance metric, not a safety property.
+	Engineers thus rely on timer interrupts and priorities to control timing in software
+	and schedulability analyses to determine if timing requirements will always be met.
+	</p>
+	
+	<!-- <p>
+	Many such CPS must be inherently <em>distributed</em>, are subject to stringent
+	<em>real-time</em> constraints, and must remain fully functional in the face of
+	transient and, to some extent, permanent subsystem failures.
+	In addition to satisfying highest reliability expectations,
+	<em>safety-critical</em> CPS are also often subject to certification requirements
+	and/or formal validation efforts.
+	That is, not only must they work in practice, but it must also be possible to
+	formally establish their correctness <em>a priori</em>.
+	Going forward, the reliability of <em>learning-enabled components</em> and
+	<em>security</em> of networked CPS also ought to be first-order safety concerns,
+	like timing and fault tolerance has been in so far.
+	</p> -->
+	
+	<p>
+	The focus of this course is to <em>explore the design principles that allow the
+	construction of analytically sound and temporally safe real-time computing systems</em>,
+	which are integral to a plethora of safety-critical CPS.
+	To this end, we will reason about, compare, and contrast different scheduling algortihms
+	and mathematical analyses techniques from the real-time systems literature.
+	</p>
+
+<p>
+<dl><dt>Learning objectives</dt>
+<dd>
+<ul>
+<!-- <li>TBD</li> -->
+<li>Compare and contrast design principles for general-purpose systems with those for special-purpose real-time or cyber-physical systems</li>
+<li>Become familiar with key algorithms and mathematical analyses for hard real-time scheduling</li>
+<li>Learn to read, critique, write about, and present systems or theory research in the field of real-time systems</li>
+<li>Design and conduct a research project related to scheduling or real-time computing in operating or distributed systems (broadly construed)</li>
+<li>Understand the internals of FreeRTOS through a set of well-defined programming assignments (optional, in lieu of a research project)</li>
+<li>Get a preview of state-of-the-art research on mechanizing scheduling analyses using the Coq interactive theorem prover (tentative)</li>
+</ul>
+</dd>
+</dl>
+</p>
+
+<p>
+<dl><dt>Prerequisites</dt>
+<dd>
+This is a beginner-friendly course intended to introduce you to the field of real-time systems.
+That said, students are expected to have at least an undergraduate-level understanding of
+systems, such as operating systems, computer networks, or distributed systems.
+Prior exposure to real-time computing, embedded systems, or cyber-physical
+systems is recommended but not required.
+Enterprising Bachelors students who fulfill the above pre-requisites,
+i.e., CPSC 313, CPSC 317 or CPSC 416, are welcome to participate.
+In addition, a certain level of proficiency in discrete mathematics and probability,
+and some background in algorithms and complexity of computation, typically at the level of CPSC 320,
+is also expected.
+</dd>
+<!-- <dd>
+<br/>
+</dd>
+<dd>
+This is a research-oriented course intended for Masters and Ph.D. students in
+Computer Science.
+Students are expected to have at least an undergraduate-level understanding of
+systems, such as operating systems, computer networks, or distributed systems.
+Prior exposure to real-time computing, embedded systems, or cyber-physical
+systems is recommended but not required.
+Enterprising Bachelors students who fulfill the above pre-requisites,
+i.e., CPSC 313, CPSC 317 or CPSC 416, are welcome to participate.
+In addition, a certain level of proficiency in discrete mathematics and probability,
+and some background in algorithms and complexity of computation, typically at the level of CPSC 320,
+is also expected.
+</dd> -->
+<!--<dd>
+<br/>
+</dd>
+<dd>
+Design of safety-critical CPS requires a strong emphasis on functional correctness.
+These guarantees are often derived from formal modeling and mathematical analysis of systems.
+A majority of the reading material is therefore expecte
+</dd>-->
+<!-- <dd>
+<br/>
+</dd>
+<dd>
+If you do not satisfy the necessary prerequisites but would still like to take
+the course, send me an email summarizing your interest in the course, your
+experience working on any related topic, and, if you are from another department,
+a list of courses related to computer science that you have taken.
+</dd> -->
+</p>
+
+
+
+
+<hr class="major" />
+<a name="grading"></a>
+<h2>Grading (tentative)</h2>
+
+<h3>CPSC 538G</h3>
+
+<!-- <p>
+This is a graduate course.
+The primary goal is to prepare you to do research,
+by encouraging you to read and discuss research papers,
+and by giving you an opportunity to carry out an open-ended course project in
+the broad areas of distributed and real-time computing.
+For students who are new to real-time computing or to software systems research (especially undergraduates),
+I will also cover the basics of real-time scheduling over a series of lectures during the first half of the course.
+Therefore, the evaluation for this course consists of three main components.
+</p> -->
+
+<!-- <strong>Note: Paper Presentation and Participation components will apply only to students enrolled in CPSC 538G,
+as one of the primary goals of a graduate course is to prepare you to do reserach by encouraging you to read, discuss, and critique research papers.
+Likewise, the final exam component will apply only to students enrolled in CPEN 432.</strong> -->
+	
+<p><dl><dt>Take-home Homework Assignments (10%)</dt><dd>
+For the first half of the course, I will create few take-home assignments to ensure
+that you all understand the basic material taught in the class.
+Assignments are to be handed in individually.
+</dd></dl></p>
+
+<p><dl><dt>Paper Presentation (20%)</dt><dd>
+During the second half of the course, we will discuss several research papers on
+various topics in the field of real-time systems.
+We will discuss one (occassionally, two) papers per day, some classical, some recent.
+Each paper will be assigned one or two discussion leads,
+who will be expected to read and understand the paper in detail,
+and who will be resonsible for presenting the key ideas of the paper.
+</dd></dl></p>
+
+<p><dl><dt>Participation (10%)</dt><dd>
+Participation includes engaging in discussion over Piazza, in the ``lectures'', and in presentations of your peers.
+Students are expected to read the assigned reading material before each class, post initial questions and discussion points on Piazza, and respond to others' questions on Piazza and in class.
+Please submit your questions and initial discussion points on Piazza by 11:00 AM one day before the class.
+</dd></dl></p>
+	
+<p><dl>
+<dt>Research Project (60%)</dt>
+<dd>The research project must be done in teams of 1-2.
+The goal of the research project is to conduct original research related to scheduling or real-time computing in operating or distributed systems (broadly construed).
+You may talk to the instructor for some ideas that are well-scoped for a course project.
+<!-- You may also undertake a project overlapping with your own research, if you can
+demonstrate how it is related to and/or influenced by some topic from this
+course. -->
+Your research project can have one of three flavors.
+(1) <em>Exploration</em>: You may undertake a project overlapping with your own research, if you can demonstrate how it is related to and/or influenced by some topic from this course.
+You may describe the design, implementation, and evaluation of your solution in the project report.
+You may optionally submit an artifact along with the report.
+(2) <em>Replication</em>: You may mechanize, verify, or reproduce the results of an existing real-time systems solution. In this case, you are expected to submit a functional artifact and results along with the project report.
+(3) <em>Systematization</em>: You may write an SoK (systematization-of-knowledge) paper on a topic, reviewing the literature and identifying potential directions for future research. Real SoKs tend to cover ~100 papers; an SoK in the course might cover at least 15-20 papers.
+The deliverables include:
+<!-- You must submit a <em>fully functional and reproducible artifact</em> along with the final report. -->
+<p><dl><dd>
+	<ul>
+	<li>Project proposal (5%)</li>
+	<li>Mid-term presentation (15%)</li>
+	<li>Final report and artifact (40%)</li>
+	</ul>
+</dd></dl></p>
+<strong>Students enrolled in CPSC 538G may choose to do the CPEN 432 FreeRTOS Project (outlined below) instead of a research project.
+	Undergraduates, especially, may decide to (and are recommended to) choose this option. Please consult with me before taking this decision,
+	as we have limited embedded hardware availabe for the FreeRTOS Project.</strong>
+</dd>
+</dl></p>
+
+<h3>CPEN 432</h3>
+
+<p><dl><dt>Take-home Homework Assignments (10%)</dt><dd>
+For the first half of the course, I will create few take-home assignments to ensure
+that you all understand the basic material taught in the class.
+Assignments are to be handed in individually.
+</dd></dl></p>
+
+<p><dl><dt>Final Exam (30%)</dt><dd>
+This will be a written exam covering all aspects of the course, including the fundamentals of real-time system design, advanced topics covered as part of the research paper discussions, and some aspects of the FreeRTOS project.
+</dd></dl></p>
+
+<p><dl>
+<dt>FreeRTOS Project (60%)</dt>
+This will involve understanding the internals of the FreeRTOS real-time operating system kernel,
+extending it to support the <em>Earliest Deadline First</em> dynamic-priority scheduling algorithm,
+the <em>Stack Resource Policy</em> for real-time locking, and the <em>Constant Bandwidth Server</em>
+for co-scheduling real-time periodic and non-real-time aperiodic tasks.
+The underlying scheduling theory for each of the assignments will be taught during the first half of the course,
+or else extensive documentation and help will be provided.
+These tentative programming assignments and their relative weightage is summarized below.
+Like the research project, you must also submit a <em>fully functional and reproducible artifact</em> along with each assignment submission.
+<!-- Remember that a substantial percentage of your grade will be assigned during the demos, so prepare a nice demo! -->
+<p><dl><dd>
+	<ul>
+	<li>Earliest Deadline First (EDF) (15%)</li>
+	<li>Stack Resource Policy (SRP) (15%)</li>
+	<li>Constant Bandwidth Server (CBS) (15%)</li>
+	<li>Final Demo (15%)</li>
+	</ul>
+</dd></dl></p>
+</dd>
+</dl></p>
+
+
+
+
+
+
+
 
 									</div>
 								</section>
