@@ -242,13 +242,13 @@ that you all understand the basic material taught in the class.
 Assignments are to be handed in individually.
 </dd></dl></p>
 
-<p><dl><dt>Final Exam (30%)</dt><dd>
-This will be a written exam covering all aspects of the course, including the fundamentals of real-time system design, advanced topics covered as part of the research paper discussions, and some aspects of the FreeRTOS project.
+<p><dl><dt>Mid-term Quiz (10%) and Final Exam (20%)</dt><dd>
+These will be a written or CBTF exams covering all aspects of the course, including the fundamentals of real-time system design, advanced topics covered as part of the research paper discussions, and some aspects of the FreeRTOS project.
 </dd></dl></p>
 
 <p><dl>
 <dt>FreeRTOS Project (60%)</dt>
-This will involve understanding the internals of the FreeRTOS real-time operating system kernel,
+<dd>This will involve understanding the internals of the FreeRTOS real-time operating system kernel,
 extending it to support the <em>Earliest Deadline First</em> dynamic-priority scheduling algorithm,
 the <em>Stack Resource Policy</em> for real-time locking, and the <em>Constant Bandwidth Server</em>
 for co-scheduling real-time periodic and non-real-time aperiodic tasks.
@@ -268,6 +268,295 @@ Like the research project, you must also submit a <em>fully functional and repro
 </dd>
 </dl></p>
 
+
+
+
+<hr class="major" />
+<a name="schedule"></a>
+<h2>Schedule (tentative)</h2>
+
+<!-- <p>
+Here is a tentative list of papers to be discussed in the class.
+The URLs take you to the official page of publishers, such as IEEE or ACM.
+You should be able to get the PDFs from there using your UBC credentials.
+Nonetheless, I will also be uploading all papers to the UBC Canvas course page.
+</p> -->
+
+<!-- <p>
+We will cover the following themes. REAL-TIME SYSTEMS, AUTONOMOUS DRIVING SYSTEMS, FAULT-TOLERANT REAL-TIME SYSTEMS,
+</p> -->
+
+<h3>Module I: Uniprocessor Hard Real-Time Scheduling</h3>
+
+<p>
+For this module, we will use the 4th edition of Giorgio Buttazzo's <em>Hard Real-Time Computing Systems</em> as the primary reference.
+Its electronic version can be downloaded from <a href="https://doi.org/10.1007/978-3-031-45410-3">Springer</a> and also accessible via <a href="https://go.exlibris.link/gKWH1pv9">UBC Library</a>.
+We will also refer to research papers additionally, when required, although they are optional.
+</p>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
+				<td><strong>Topic</strong></td>
+				<td><strong>Textbook Sections</strong></td>
+				<td><strong>Additional Readings</strong></td>
+				<!-- <td><strong>Student Presenter</strong></td> -->
+				<!-- <td><strong>Milestone</strong></td> -->
+			</tr>
+			<tr>
+				<td>06/01, Tuesday</td>
+				<td>Overview and logistics</td>
+				<td>1</td>
+				<td><a href="http://ccr.sigcomm.org/online/files/p83-keshavA.pdf">How to Read a Paper</a><br/>
+					<a href="https://doi.org/10.1109/MDAT.2017.2766560">What is Real-Time Computing? A Personal View</a></td>
+			</tr>
+			<tr>
+				<td>08/01, Thursday</td>
+				<td>Basic Concepts and Aperiodic Task Scheduling</td>
+				<td>2, 3</td>
+				<td><a href="https://arpangujarati.github.io/pdfs/rtss2024_paper.pdf">Response-Time Analysis of a Soft Real-time NVIDIA Holoscan Application</a> (Sections I-IV)</td>
+			</tr>
+			<tr>
+				<td>13/01, Tuesday</td>
+				<!-- <td>HARD REAL-TIME SCHEDULING</td> -->
+				<td>Recurrent Real-Time Task Models (Implementation)</td>
+				<td>12</td>
+				<td><a href="https://sigbed.org/2020/09/05/liu-and-layland-and-linux-a-blueprint-for-proper-real-time-tasks/">Liu and Layland and Linux: A Blueprint for “Proper” Real-Time Tasks</a></td>
+			</tr>
+			<tr>
+				<td>15/01, Thursday</td>
+				<!-- <td>^</td> -->
+				<td>Recurrent Real-Time Task Models (Extraction)</td>
+				<td></td>
+				<td><a href="https://lime.mpi-sws.org/">LiME: The Linux Real-Time Task Model Extractor</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td>
+			</tr>
+			<tr>
+				<td>20/01, Tuesday</td>
+				<!-- <td>^</td> -->
+				<td>Periodic Scheduling (TS, RM, EDF)</td>
+				<td>4.1 - 4.4</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>22/01, Thursday</td>
+				<td>Periodic Scheduling (DM, RTA)</td>
+				<td>4.5 - 4.7</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>27/01, Tuesday</td>
+				<td>Application of Periodic Schedulability Analysis</td>
+				<td></td>
+				<td><a href="https://doi.org/10.1007/s11241-007-9012-7">Controller Area Network (CAN) Schedulability Analysis: Refuted, Revisited and Revised</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td>
+			</tr>
+			<tr>
+				<td>29/01, Thursday</td>
+				<td>Resource Sharing (NPP, PIP, Mars)</td>
+				<td>7.1 - 7.6</td>
+				<td><a href="https://cpen432.github.io/resources/P3-mars.pdf">What really happened on Mars Rover Pathfinder</a><br/>
+					<a href="https://cpen432.github.io/resources/P4-mars.pdf">What the Media Couldn’t Tell You About Mars Pathfinder</td>
+			</tr>
+			<tr>
+				<td>03/02, Tuesday</td>
+				<td>Resource Sharing (PCP)</td>
+				<td>7.7</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>05/02, Thursday</td>
+				<td>Resource Sharing (SRP)</td>
+				<td>7.8</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>10/02, Tuesday</td>
+				<td>Fixed-priority Servers (BS, PS, DS, SS)</td>
+				<td>5</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>12/02, Thursday</td>
+				<td>Dynamic-priority Servers (DSS, CBS)</td>
+				<td>6</td>
+				<td><a href="https://lwn.net/Articles/743740/">Deadline scheduling part 1 — overview and theory</a><br/>
+					<a href="https://lwn.net/Articles/743946/">Deadline scheduler part 2 — details and usage</a><br/>
+					<a href="https://lwn.net/Articles/1024757/">The hierarchical constant bandwidth server scheduler</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Mid-term Break, Project Presentations, and Quiz</h3>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
+				<td><strong>Topic</strong></td>
+				<!-- <td><strong>Textbook Sections</strong></td> -->
+				<!-- <td><strong>Additional Readings</strong></td> -->
+				<!-- <td><strong>Student Presenter</strong></td> -->
+				<!-- <td><strong>Milestone</strong></td> -->
+			</tr>
+			<tr>
+				<td bgcolor="#00FFFF">17/02, Tuesday</td>
+				<td colspan="3" style="text-align: left;" bgcolor="#00FFFF">No class, mid-term break</td>
+			</tr>
+			<tr>
+				<td bgcolor="#00FFFF">19/02, Thursday</td>
+				<td colspan="3" style="text-align: left;" bgcolor="#00FFFF">No class, mid-term break</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFB6C1">24/02, Tuesday</td>
+				<td colspan="3" style="text-align: left;" bgcolor="#FFB6C1">No class, mid-term project presentation for CPSC 538G and mid-term Quiz for CPEN 432</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Module 2: Multiprocessor Hard Real-Time Scheduling</h3>
+
+<p>
+For this module, we will primarily use research papers as the primary reference, unless specified otherwise. However, we may also occasionally use the 1st edition of Baruah, Bertogna, and Buttazzo's <em>Multiprocessor Scheduling for Real-Time Systems</em> for reference.
+Its electronic version can be downloaded from <a href="https://doi.org/10.1007/978-3-319-08696-5">Springer</a> and also accessible via <a href="https://go.exlibris.link/HXYPGTjW">UBC Library</a>.
+</p>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
+				<td><strong>Topic</strong></td>
+				<td><strong>Additional Readings</strong></td>
+				<!-- <td><strong>Student Presenter</strong></td> -->
+				<!-- <td><strong>Milestone</strong></td> -->
+			</tr>
+			<tr>
+				<td>26/02, Thursday</td>
+				<td>Basic Concepts</td>
+				<td><a href="https://www.cs.unc.edu/~bbb/diss/brandenburg-diss.pdf">Scheduling and Locking in Multiprocessor Real-Time Operating Systems</a> (Sections 2.1-2.3)</td>
+			</tr>
+			<tr>
+				<td>03/03, Tuesday</td>
+				<td>Partitioned Scheduling</td>
+				<td><a href="https://doi.org/10.1007/978-3-319-08696-5_6">Partitioned Scheduling of L&L Tasks</a></td>
+			</tr>
+			<tr>
+				<td>05/03, Thursday</td>
+				<td>Global Scheduling</td>
+				<td><a href="https://cpen432.github.io/resources/P3-bertogna-cirinei.pdf">Response-Time Analysis for Globally Scheduled Symmetric Multiprocessor Platforms</a></td>
+			</tr>
+			<tr>
+				<td>10/03, Tuesday</td>
+				<td>Schedule Abstraction Graphs</td>
+				<td><a href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol106-ecrts2018/LIPIcs.ECRTS.2018.9/LIPIcs.ECRTS.2018.9.pdf">A Response-Time Analysis for Non-Preemptive Job Sets under Global Scheduling</a></td>
+			</tr>
+			<tr>
+				<td>12/03, Thursday</td>
+				<td>Semi-partitioned Scheduling</td>
+				<td><a href="https://people.mpi-sws.org/~bbb/papers/pdf/rtss16b.pdf">Global Scheduling Not Required: Simple, Near-Optimal Multiprocessor Real-Time Scheduling with Semi-Partitioned Reservations</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Module 3: Advanced Topics</h3>
+
+<p>
+In this module, we will spend some time understanding scheduling in Linux, and then discussing few recent reseach papers on the design of learning-enabled components for real-time systems, especially automotive systems.
+Depending on the number of students enroled in CPSc 538G, I may teach some of the topics, or we may schedule multipe paper presentations per day.
+Note: If you would like to discuss a specific topic that is not covered in the course, but still relevant to real-time systems research, e.g., security of embedded platforms or complexity and hardness analysis of real-time scheduling problems, I am happy to update the schedule.
+</p>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
+				<td><strong>Topic</strong></td>
+				<td><strong>Additional Readings</strong></td>
+				<!-- <td><strong>Student Presenter</strong></td> -->
+				<!-- <td><strong>Milestone</strong></td> -->
+			</tr>
+			<tr>
+				<td>17/03, Tuesday</td>
+				<td>Temporal Interference in Linux</td>
+				<td><a href="https://doi.org/10.1109/RTSS62706.2024.00034">Interference-free Operating System: A 6 Years’ Experience in Mitigating Cross-Core Interference in Linux</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td></td>
+			</tr>
+			<tr>
+				<td>19/03, Thursday</td>
+				<td>Proportional Share Scheduling in Linux</td>
+				<td><a href="https://people.eecs.berkeley.edu/~istoica/papers/eevdf-tr-95.pdf">Earliest Eligible Virtual Deadline First: A Flexible and Accurate Mechanism for Proportional Share Resource Allocation</a><br/>
+					<a href="https://doi.org/10.1109/REAL.1996.563725">A proportional share resource allocation algorithm for real-time, time-shared systems</a><br/>
+					<a href="https://lwn.net/Articles/925371/">An EEVDF CPU scheduler for Linux</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td>
+			</tr>
+			<tr>
+				<td>24/03, Tuesday</td>
+				<td>GPU Scheduling</td>
+				<td><a href="https://www.usenix.org/system/files/osdi25-shen-weihang.pdf">XSched: Preemptive Scheduling for Diverse XPUs</a><br/>
+					<span style="background-color:#FFFF00">Paper Presentation by TBD</span></td></td>
+			</tr>
+			<tr>
+				<td>26/03, Thursday</td>
+				<td>TBD</td>
+				<td><span style="background-color:#FFFF00">Paper Presentation by TBD</span></td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<h3>Module 4: Mechanizing Schedulability Analyses</h3>
+
+<p>
+In this module, we will spend most of the time understanding the state-of-the-art research on mechanizing scheduling analyses using the Coq interactive theorem prover.
+</p>
+
+<div class="table-wrapper">
+	<table class="alt">
+		<tbody>
+			<tr>
+				<td><strong>Date / Day</strong></td>
+				<!-- <td><strong>Theme</strong></td> -->
+				<td><strong>Topic</strong></td>
+				<td><strong>Additional Readings</strong></td>
+				<!-- <td><strong>Student Presenter</strong></td> -->
+				<!-- <td><strong>Milestone</strong></td> -->
+			</tr>
+			<tr>
+				<td>31/03, Tuesday</td>
+				<td>TBD</td>
+				<td><a href="https://people.mpi-sws.org/~bbb/papers/pdf/ecrts16f.pdf">PROSA: A Case for Readable Mechanized Schedulability Analysis</a></td>
+			</tr>
+			<tr>
+				<td>02/04, Thursday</td>
+				<td>TBD</td>
+				<td>TBD</td>
+			</tr>
+			<tr>
+				<td>07/04, Tuesday</td>
+				<td>TBD</td>
+				<td>TBD</td>
+			</tr>
+			<tr>
+				<td>09/04, Thursday</td>
+				<td>TBD</td>
+				<td>TBD</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
 
 
